@@ -36,6 +36,7 @@ static int ft_format_conversion(char c, va_list args)//i send the char that defi
         return (0);
 }
 
+
 int ft_printf(const char * format, ...)
 {
     va_list args;
