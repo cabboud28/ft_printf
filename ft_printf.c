@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int ft_format_conversion(char c, va_list args)//i send the char that define the format and the va_list to get what to work with
+static int ft_format_conversion(char c, va_list args)//i send the char that define the format and the va_list to get what to work with
 {
     //handle each case here
     if (c == '%')
@@ -21,6 +21,8 @@ int ft_format_conversion(char c, va_list args)//i send the char that define the 
         return (ft_print_char(va_arg(args, int))); //don't use char with va_arg (search about it)
     else if (c == 's')
         return (ft_print_string(va_arg(args, char *)));
+    else if (c == 'p')
+        return (ft_print_pointer(va_arg(args, void *)));
     else if (c == 'd' || c == 'i')
         return (ft_print_number(va_arg(args, int)));
     else if (c == 'u')
