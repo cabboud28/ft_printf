@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+//static because this function is only used in this file
 static int ft_format_conversion(char c, va_list args)//i send the char that define the format and the va_list to get what to work with
 {
     //handle each case here
