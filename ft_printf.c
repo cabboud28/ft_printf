@@ -53,7 +53,7 @@ int ft_printf(const char * format, ...)
         }
         else
             len = len + ft_print_char(*format);
-        len++;
+        format++;
     }
     va_end(args);
     return (len);
