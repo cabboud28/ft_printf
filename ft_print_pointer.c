@@ -31,7 +31,7 @@ int ft_print_pointer(void *ptr)
 
     len = 0;
     if (!ptr)
-        return (len + ft_print_string("0x0")); //if pointer is NULL print 0x0 (address = 0)
+        return (len + ft_print_string("(nil)")); //if pointer is NULL print (nil) not 0x0 (address = 0)
     len = len + ft_print_string("0x"); //pointer start with 0x
     len = len + ft_print_hexa_long((unsigned long)ptr);
     return (len);
