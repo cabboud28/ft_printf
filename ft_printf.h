@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 int ft_printf(const char *format, ...);
-int ft_print_char(int c); //va_arg types
+int ft_print_char(int c); //va_arg types 
 int ft_print_string(char *str);
 int ft_print_pointer(void *ptr);
 int ft_print_number(int n);
