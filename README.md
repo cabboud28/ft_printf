@@ -157,6 +157,58 @@ This choice keeps the implementation efficient, simple, and deterministic.
 
 These decisions align with best practices for constrained C environments.
 
+## Testing
+
+A minimal main.c was used during development to validate all mandatory conversions, edge cases, and mixed format strings by comparing the output with the standard printf.
+
+```c
+#include <stdio.h>
+#include <limits.h>
+#include "ft_printf.h"
+
+int main(void)
+{
+    ft_printf("Char: %c\n", 'A');
+    printf("Char: %c\n\n", 'A');
+
+    ft_printf("String: %s\n", "Hello");
+    printf("String: %s\n\n", "Hello");
+
+    ft_printf("NULL string: %s\n", (char *)0);
+    printf("NULL string: %s\n\n", (char *)0);
+
+    ft_printf("Pointer: %p\n", "test");
+    printf("Pointer: %p\n\n", "test");
+
+    ft_printf("NULL pointer: %p\n", (void *)0);
+    printf("NULL pointer: %p\n\n", (void *)0);
+
+    ft_printf("Int: %d %i\n", 42, -42);
+    printf("Int: %d %i\n\n", 42, -42);
+
+    ft_printf("INT_MIN INT_MAX: %d %d\n", INT_MIN, INT_MAX);
+    printf("INT_MIN INT_MAX: %d %d\n\n", INT_MIN, INT_MAX);
+
+    ft_printf("Unsigned: %u\n", UINT_MAX);
+    printf("Unsigned: %u\n\n", UINT_MAX);
+
+    ft_printf("Hex: %x %X\n", 48879, 48879);
+    printf("Hex: %x %X\n\n", 48879, 48879);
+
+    ft_printf("Mix: %c %s %p %d %u %x %%\n",
+            'Z', "42", "ptr", -123, 42u, 42u);
+    printf("Mix: %c %s %p %d %u %x %%\n",
+            'Z', "42", "ptr", -123, 42u, 42u);
+
+    return (0);
+}
+```
+
+### Compilation
+```c
+gcc main.c libftprintf.a && ./a.out
+```
+
 ## Resources
 
 ### Documentation & References
